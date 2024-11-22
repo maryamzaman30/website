@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Maryam Zaman</title>
+
+    <!-- Add a favicon for the website to avoid 404 error message -->
+    <!-- Standard favicon for most browsers -->
+    <link rel="icon" type="image/png" href="images/favicon/chick_emoji.png">
+
+    <!-- High-resolution favicon for Android/Chrome -->
+    <link rel="icon" type="image/png" sizes="192x192" href="images/favicon/chick_emoji.png">
+
+    <!-- Apple Touch Icon for iOS -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/chick_emoji.png">
+
+    <!-- Microsoft Tile Icon for Windows -->
+    <meta name="msapplication-TileImage" content="images/favicon/chick_emoji.png">
+    <meta name="msapplication-TileColor" content="#ffcc00"> <!-- Optional background color -->
+
+    <!-- For Responsiveness -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link to the Font Awesome stylesheet (version 6.0.0-beta3) hosted on a CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Loading  CSS -->
+    <link rel="stylesheet" type="text/css" href="stylesheet/index.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Maryam Zaman <span class="chick-emojis">🐣🐥🐤</span></h1>
+        <!-- Chick-Themed Labeled Menu Button -->
+        <div class="menu-container">
+        <img src="images/pngwing.com.png" class="labeled-menu-button" onclick="toggleMenu()">
+        <div class="menu-label" onclick="toggleMenu()">Menu</div>
+        </div>
+        <nav class="menu">
+            <a href="#about">About</a>
+            <a href="#education">Education</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Me </h2>
+        <p>Hi! I'm Maryam Zaman, a computer science student with a deep interest in data science, AI, computer security, and web technologies. I enjoy building projects and learning new things, and I aim to contribute to health and medicine through technology.</p>
+        <!-- Resume Button -->
+        <a href="path/to/resume.pdf" target="_blank" class="resume-btn">Resume</a>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h2>Education</h2>
+        <p><strong>University of London</strong></p>
+        <p>Bachelor's degree, Computer Science</p>
+        <p>Sep 2022 - Sep 2025</p>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills">
+            <div class="skillsCard">
+                <h3>JavaScript</h3>
+            </div>
+            <div class="skillsCard">
+                <h3>Python</h3>
+            </div>
+            <div class="skillsCard">
+                <h3>HTML & CSS</h3>
+            </div>
+            <div class="skillsCard">
+                <h3>Machine Learning</h3>
+            </div>
+            <div class="skillsCard">
+                <h3>Data Analysis</h3>
+            </div>
+            <div class="skillsCard">
+                <h3>React</h3>
+            </div>
+            <div class="skillsCard">
+                <h3>Java</h3>
+            </div>
+            <div class="skillsCard">
+                <h3>R Programming</h3>
+            </div>
+            <div class="skillsCard">
+                <h3>SQL</h3>
+            </div>
+            <div class="skillsCard">
+                <h3>Node.js</h3>
+            </div>
+            <div class="skillsCard">
+                <h3>C++</h3>
+            </div>
+        </div>
+        <p class="description">Always eager to expand my skillset in technology and beyond!</p>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div id="project-list" class="projects">
+            <!-- Projects will be dynamically inserted here -->
+        </div>
+        <p class="description"> See more of my projects on my <a href="https://github.com/maryamzaman30?tab=repositories" target="_blank">GitHub repositories</a>.</p>    
+    </section>
+
+    <!-- Video Modal -->
+    <div id="video-modal" class="modal">
+        <div class="modal-content">
+        <!-- Border image positioned absolutely -->
+        <img src="images/border.png" alt="Decorative Border" class="modal-border">
+        <span class="close-button" onclick="closeVideoModal()">Close</span>
+        <video id="project-video" controls>
+            <source src="" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        </div>
+    </div>
+    
+    <!-- PDF Modal -->
+    <div id="pdf-modal" class="modal">
+        <div class="modal-content">
+        <!-- Border image positioned absolutely -->
+        <img src="images/border.png" alt="Decorative Border" class="modal-border2">
+        <span class="close-button" onclick="closePdfModal()">Close</span>
+        <iframe id="pdf-viewer" src="" width="100%" height="600px"></iframe>
+        </div>
+    </div>
+  
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Feel free to reach out to me via email <strong>maryam30zaman@gmail.com</strong> or connect with me on <a href="https://www.linkedin.com/in/maryam-zaman-bbbb9b32a/" target="_blank">LinkedIn</a>.</p>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Maryam Zaman. Created with care and 🐣🐥🐤.</p>
+        <div class="footer-icons">
+            <a href="https://www.linkedin.com/in/maryam-zaman-bbbb9b32a/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/maryamzaman30" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.youtube.com/channel/UCkJGvSPlElPey5GH9_A5e_w" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+    </footer>
+    
+    <!-- Chick Image Floating Effect -->
+    <div class="chicks"></div>
+
+    <!-- Javascripts -->
+    <script src="js/project_display.js"></script>
+    <script src="js/floating_chicks.js"></script>
+    <script src="js/togglemenu.js"></script>
+</body>
+</html>
+
+<!--
+Resources used:
+Images:
+chickpic.png - https://www.cleanpng.com/png-clip-art-chicken-openclipart-website-kifaranga-6177654/
+pngwing.com.png - https://www.pngwing.com/en/free-png-vauww
+border.png - https://pngtree.com/freepng/chick-border-animal-illustration_4537552.html
+-->

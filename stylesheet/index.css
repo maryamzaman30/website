@@ -1,0 +1,747 @@
+/* General Reset and Base Styles */
+* 
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Sets the box model so that width and height include padding and border */
+    font-family: 'Arial', sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* Default styles for links & some buttons */
+a, .preview-video-btn, .preview-pdf-btn 
+{
+    cursor: pointer;
+    color: #d2691e;
+    text-decoration: none;
+    transition: text-decoration 0.3s;
+}
+
+a:hover, .preview-video-btn:hover, .preview-pdf-btn:hover 
+{
+    text-decoration: underline;
+}
+
+/* Background --------------------------------------------------------------------- */
+body 
+{
+    background: #fff8dc;
+    font-size: 18px;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Chick Floating Animation */
+.chicks 
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Set a low z-index value (-1) to ensure this element is behind other content */
+    pointer-events: none;  /* Disable pointer events, so it won't interfere with clicking or interacting with other elements */
+}
+
+.chick 
+{
+    position: absolute;
+    width: 50px;  /* Set a fixed width for the chick image, keeping the height proportional */
+    height: auto; /* Automatically adjusts height to maintain aspect ratio based on width */
+    background-image: url('../images/chickpic.png'); /* Path to chick image */
+    background-size: contain; /* Ensures the whole chick is visible */
+    background-repeat: no-repeat;
+    animation: floatChicks 5s infinite ease-in-out;
+}
+
+/* Define the animation behavior for the chick elements */
+@keyframes floatChicks 
+{
+    /* At the start (0% of the animation), move the chick slightly upwards, scale it down, & reduce opacity */
+    0% 
+    { 
+        transform: translateY(-10px) scale(0.9); /* Moves up & shrinks the chick */
+        opacity: 0.8; /* Makes the chick slightly transparent */
+    }
+
+    /* At the halfway point (50% of the animation), move the chick down, scale it to normal size & increase opacity */
+    50% 
+    { 
+        transform: translateY(15px) scale(1); /* Moves down & restores normal size */
+        opacity: 1; /* Fully opaque chick */
+    }
+
+    /* At the end (100% of the animation), return the chick to the start state */
+    100% 
+    { 
+        transform: translateY(-10px) scale(0.9); /* Moves back up & shrinks */
+        opacity: 0.8; /* Slightly transparent again */
+    }
+}
+
+/* Headings --------------------------------------------------------------------- */
+h1, h2, h3
+{
+    font-family: 'Comic Sans MS', sans-serif;
+    color: #d2691e;
+}
+
+h1, h2
+{
+    font-size: 2.5rem;
+    position: relative;
+}
+
+/* Header Section --------------------------------------------------------------------- */
+header 
+{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 15px 50px;
+    background: rgba(255, 223, 186, 0.8);
+    z-index: 1000;
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+header h1 
+{
+    transition: transform 0.3s ease;
+}
+
+header h1:hover 
+{
+    transform: scale(1.1);
+}
+
+/* Hide the chick emoji by default */
+.chick-emojis 
+{
+    opacity: 0;
+    margin-left: 1px;
+    transition: opacity 0.3s ease;
+}
+
+/* Show chick emoji on hover */
+header h1:hover .chick-emojis 
+{
+    opacity: 1;
+}
+
+nav a 
+{
+    text-decoration: none;
+    color: #555;
+    margin-left: 20px;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+nav a:hover 
+{
+    color: #d2691e;
+    text-decoration: none;
+}
+
+/* Add a smooth fade-in effect for the chick emoji */
+nav a::before,
+nav a::after 
+{
+    content: ''; /* Empty initially */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* When hovering, the chick emoji becomes visible */
+nav a:hover::before 
+{
+    content: '🐣';
+    opacity: 1;
+}
+
+nav a:hover::after 
+{
+    content: '🐣';
+    opacity: 1;
+}
+
+/* Section --------------------------------------------------------------------- */
+section 
+{
+    padding: 100px 50px;
+    text-align: center;
+    width: 90%;
+    max-width: 1210px;
+    margin: 0 auto;
+}
+
+/* Base Heading Style */
+section h2 
+{
+    margin-bottom: 30px;
+}
+
+section p 
+{
+    font-size: 1.2rem;
+    color: #666;
+    margin: 5px;
+}
+
+/* About Section --------------------------------------------------------------------- */
+/* Add padding-top specifically for the About section */
+#about 
+{
+    padding-top: 255px;
+}
+
+.resume-btn 
+{
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    color: #d2691e;
+    border: 2px solid #d2691e;
+    border-radius: 5px;
+    background-color: transparent;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s, transform 0.3s; /* Transition effects */
+}
+
+.resume-btn:hover 
+{
+    background-color: #d2691e8e;
+    color: #fff;
+    transform: translateY(-3px); /* Slight lift effect */
+    text-decoration: none;
+}
+
+/* Skills & Project Section --------------------------------------------------------------------- */
+/* Shared styles for both .project and .skillsCard */
+.projects, .skills 
+{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* Card styles for both */
+.project, .skillsCard 
+{
+    background-color: #f7e7ce;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Only styles not shared for both .project & .skillsCard (That is; size, space & text position of cards) */
+.project 
+{
+    width: 100%; /* Full width on smaller screens */
+    max-width: 300px; /* Maximum width to prevent cards from becoming too large */
+    text-align: left;
+}
+.skillsCard 
+{
+    width: 200px; 
+    padding: 0.5%;
+    text-align: center;           
+}
+
+/* More shared styles */
+.project:hover, .skillsCard:hover 
+{
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.project h3, .skillsCard h3 
+{
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.project p, .skillsCard p 
+{
+    font-size: 1rem;
+    color: #666;
+    margin: 5px;
+}
+
+.description 
+{
+    margin-top: 30px;
+    font-size: 1.1em;
+    color: #555;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/* Project Section --------------------------------------------------------------------- */
+.preview-video-btn, .preview-pdf-btn 
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    font-size: 1rem; 
+    background-color: #f7e7ce; 
+    border: none; 
+    border-radius: 5px; 
+}
+
+.preview-video-btn:active, .preview-pdf-btn:active 
+{
+    background-color: yellow;
+}
+
+/* Base Modal Content (Border) Styling */
+.modal-content 
+{
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    background-color: #f7e7ce;
+    padding: 3%;
+    border-radius: 10px; 
+}
+
+/* Modal Styling */
+.modal 
+{
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Close Button */
+.close-button 
+{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 15px;
+    padding: 5px;
+    cursor: pointer;
+    color: white;
+    background-color: red;
+    border-radius: 10px;
+    z-index: 10;
+}
+
+.close-button:hover
+{
+    background-color: darkred;
+}
+
+/* Border Image */
+.modal-border,
+.modal-border2 
+{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 10; 
+    pointer-events: none; /* No interaction with the border */
+}
+
+.modal-border
+{
+    width: 33%;
+    height: 13%;
+}
+
+.modal-border2
+{
+    width: 43%;
+    height: 13%;
+}
+
+/* Video Element in Modal */
+video 
+{
+    width: 100%;
+    max-height: 400px;
+}
+
+/* PDF Viewer in Modal */
+iframe 
+{
+    border: none;
+    width: 100%;
+    height: 600px;
+}
+
+/* Footer --------------------------------------------------------------------- */
+footer 
+{
+    background: #ffebcd;
+    padding: 30px;
+    text-align: center;
+    color: #555;
+    position: relative;
+}
+
+.footer-icons a 
+{
+    color: #d2691e;
+    font-size: 2rem;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.footer-icons a:hover 
+{
+    color: #555;
+}
+
+/* Hide labeled-menu-button by Default -------------------------------------------- */
+.labeled-menu-button, .menu-label 
+{
+    display: none; /* Hidden on larger screens */
+}
+
+/* Responsive Styling */
+@media (max-width: 1028px) 
+{
+    /* Header Section -------------------------------------------------------------- */
+    header 
+    {
+        padding: 15px 20px;
+    }
+
+    header h1 
+    {
+        font-size: 1.5rem;
+    }
+
+    /* Active Animation for the Menu button */
+    .labeled-menu-button 
+    {
+        display: flex; /* Flex container for alignment */
+        flex-direction: column; /* Stack button & label vertically */
+        align-items: center; /* Center-align button & text */
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        transition: transform 0.3s;
+    }
+
+    .menu-label 
+    {
+        display: block;
+        font-size: 1rem; 
+        color: black; 
+        margin-top: 1px; /* Add space between button & label */
+    }
+
+    .labeled-menu-button.active 
+    {
+        transform: rotate(45deg);
+    }
+    
+    /* Menu Styling */
+    nav.menu 
+    {
+        display: none; /* initially hidden */
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 223, 186, 0.9);
+        position: absolute;
+        top: 97px;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        gap: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        z-index: 10;
+    }
+
+    /* Show Menu when Active */
+    nav.menu.show 
+    {
+        display: flex;
+    }
+
+    /* Add a delayed animation for individual menu links */
+    nav.menu.show > * 
+    {
+        animation: menuItemFade 0.5s ease forwards;
+        animation-delay: calc(0.1s * var(--i)); /* Staggered delay */
+    }
+
+    /* Keyframes for individual menu links */
+    @keyframes menuItemFade 
+    {
+        from 
+        {
+            /* Initial state of the menu links when they first load (hidden and slightly shifted) */
+            opacity: 0; /* Menu links start off invisible */
+            transform: translateY(-10px); /* Menu links start a little bit above their final position */
+        }
+        to 
+        {
+            /* Final state of the menu links after the animation */
+            opacity: 1; /* Menu links become fully visible */
+            transform: translateY(0); /* Menu links slide into their final position */
+        }
+    }
+
+    /* Menu links styling */
+    nav.menu a 
+    {
+        text-decoration: none;
+        color: #333;
+        font-size: 1.2rem;
+        padding: 10px;
+        transition: background 0.2s, color 0.3s ease;
+    }
+
+    nav.menu a:hover 
+    {
+        color: #d2691e;
+    }
+
+    /* Project Section ------------------------------------------------------------- */
+    .close-button 
+    {
+        font-size: 13px;
+        top: 5px;
+        right: 5px;
+    }
+
+    .modal-border2
+    {
+        width: 300px;
+        height: 13%;
+    }
+}
+
+/* Small Screens (560px and below) */
+@media (max-width: 560px) 
+{
+    /* Header Section -------------------------------------------------------------- */
+    header 
+    {
+        padding: 8px 15px;
+    }
+
+    header h1 
+    {
+        font-size: 1.3rem;
+    }
+
+    nav.menu 
+    {
+        top: 82px
+    }
+
+    /* Section --------------------------------------------------------------------- */
+    section 
+    {
+        padding: 80px 20px;
+    }
+
+    section h2 
+    {
+        font-size: 2rem;
+    }
+
+    section p 
+    {
+        font-size: 1rem;
+    }
+
+    /* About Section --------------------------------------------------------------- */
+    /* Add padding-top specifically for the About section */
+    #about 
+    {
+        padding-top: 155px;
+    }
+
+    .resume-btn 
+    {
+        font-size: 1rem;
+        padding: 8px 15px;
+    }
+
+    /* Skills Section -------------------------------------------------------------- */
+    .skillsCard 
+    {
+        width: 90%;
+        max-width: 100%;
+    }
+
+    /* Project Section ------------------------------------------------------------- */
+    .project
+    {
+       width: 100%;
+    }
+
+    .modal-content 
+    {
+        width: 100%;
+        padding: 5%;
+    }
+
+    .close-button 
+    {
+        font-size: 13px;
+        top: 5px;
+        right: 5px;
+    }
+
+    .modal-border
+    {
+        width: 175px;
+        height: 15%; 
+    }
+
+    .modal-border2 
+    {
+        width: 175px;
+        height: 12%; 
+    }
+
+    video 
+    {
+        width: 100%;
+        max-height: 400px;
+    }
+
+    iframe 
+    {
+        height: 400px;
+    }
+
+    /* Footer ------------------------------------------------------------------------ */
+    footer 
+    {
+        padding: 20px;
+        font-size: 0.9rem;
+    }
+
+    .footer-icons a 
+    {
+        font-size: 1.5rem;
+    }
+}
+
+/* Extra Small Screens (418px & below) */
+@media (max-width: 419px) 
+{
+    /* Header Section -------------------------------------------------------------- */
+    header 
+    {
+        padding: 5px 10px;
+    }
+
+    header h1 
+    {
+        font-size: 1.1rem;
+    }
+
+    nav.menu 
+    {
+        top: 76px
+    }
+
+    /* Section --------------------------------------------------------------------- */
+    section 
+    {
+        padding: 60px 10px;
+    }
+
+    section h2 
+    {
+        font-size: 1.6rem;
+    }
+
+    section p 
+    {
+        font-size: 0.9rem;
+    }
+
+    /* About Section --------------------------------------------------------------- */
+    .resume-btn 
+    {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+    }
+
+    /* Skills & Project Section ----------------------------------------------------- */
+    .project, .skillsCard 
+    {
+        width: 100%;
+        max-width: 280px;
+        padding: 15px;
+    }
+
+    /* Project Section ------------------------------------------------------------- */
+    .modal-content 
+    {
+        width: 95%;
+        padding: 5%; 
+    }
+
+    .close-button 
+    {
+        font-size: 10px;
+        padding: 1%;
+        top: 1px;
+        right: 2px;
+    }
+
+    .modal-border
+    {
+        width: 150px;
+        height: 35px;
+    }
+
+    .modal-border2 
+    {
+        width: 150px;
+        height: 12%;
+    }
+
+    video 
+    {
+        max-height: 300px;
+    }
+
+    iframe 
+    {
+        height: 300px;
+    }
+
+    /* Footer ------------------------------------------------------------------------ */
+    footer 
+    {
+        padding: 15px;
+        font-size: 0.6rem;
+    }
+
+    .footer-icons a 
+    {
+        font-size: 1.3rem;
+    }
+}
