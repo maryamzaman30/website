@@ -8,7 +8,7 @@ const projects = [
     description: "Note-taking app built by a team using HTML, CSS, Node.js, and SQLite3.",
     skills: "Project Management, Node.js, SQLite3, HTML, CSS",
     video: "videos/back-end-web-app.mp4",
-    link: "#"
+    link: "https://github.com/maryamzaman30/Agile-Software-Development-University-of-London-Web-App"
     
   },
   {
@@ -18,7 +18,7 @@ const projects = [
     description: "Image processing app with filters using p5.js and face detection.",
     skills: "JavaScript, Graphic Design, p5.js",
     pdf: "pdfs/image-processing-app.pdf",
-    link: "#"
+    link: "https://github.com/maryamzaman30/Graphics-Programming-Final-University-of-London-Image-processing-application"
   },
   {
     title: "Databases, Networks and the Web - Web Application",
@@ -64,15 +64,6 @@ const projects = [
     skills: "HTML, CSS, JavaScript, Responsive Design",
     video: "videos/front-end-website-final.mp4",
     link: "https://github.com/maryamzaman30/Web-Development-Final-University-of-London-front-end-website"
-  },
-  {
-    title: "Web Development - Team Project",
-    date: "Mar 2023 - Jul 2023",
-    association: "University of London",
-    description: "Three-page theme park front-end website developed by a team.",
-    skills: "HTML, CSS, Teamwork, Web Development",
-    video: "videos/front-end-website-midterm.mp4",
-    link: "https://github.com/maryamzaman30/Web-Development-Midterm-University-of-London-front-end-website"
   },
   {
     title: "Intro to Programming I - Game Project",
