@@ -2,7 +2,7 @@
 const chicksContainer = document.querySelector('.chicks');
 
 // Define how many chicks will be created
-const chickCount = 100;
+const chickCount = 80;
 
 // Loop to create the specified number of chicks
 for (let i = 0; i < chickCount; i++) 

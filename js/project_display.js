@@ -127,9 +127,9 @@ function displayProjects()
       pdfButton.className = "preview-pdf-btn"; // Assign a class to style the button
       pdfButton.textContent = "Preview PDF"; // Button label
       pdfButton.dataset.index = index; // Store the project index in the button
-      pdfButton.addEventListener("click", () => { // Add an event listener to handle button click
-        console.log(`Opening PDF: ${project.pdf}`); // Log to console for debugging
-        openPdfModal(project.pdf); // Open the PDF in a modal
+      pdfButton.addEventListener("click", () => {
+          console.log(`Opening PDF: ${project.pdf}`); // Log to console for debugging
+          window.open(project.pdf, '_blank'); // Open the PDF in a new tab
       });
       buttonsContainer.appendChild(pdfButton); // Add the PDF button to the buttons container
     }
@@ -162,26 +162,6 @@ function displayProjects()
     // Finally, add the project div to the main project list on the webpage
     projectList.appendChild(projectDiv);
   });
-}
-
-// Function to open a PDF in a modal when the "Preview PDF" button is clicked
-function openPdfModal(pdfSrc) 
-{
-  const modal = document.getElementById("pdf-modal"); // Get the modal element
-  const pdfViewer = document.getElementById("pdf-viewer"); // Get the PDF viewer element
-
-  pdfViewer.src = pdfSrc; // Set the source of the PDF viewer to the selected PDF
-  modal.style.display = "flex"; // Show the modal by setting display to "flex"
-}
-
-// Function to close the PDF modal when the user is done viewing the PDF
-function closePdfModal() 
-{
-  const modal = document.getElementById("pdf-modal"); // Get the modal element
-  const pdfViewer = document.getElementById("pdf-viewer"); // Get the PDF viewer element
-
-  pdfViewer.src = ""; // Clear the PDF source to stop it from displaying
-  modal.style.display = "none"; // Hide the modal by setting display to "none"
 }
 
 // Function to open a video in a modal when the "Preview Video" button is clicked
