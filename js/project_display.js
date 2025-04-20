@@ -2,10 +2,19 @@
 // Array of project objects, each representing a project with its details
 const projects = [
   {
+    title: "Databases and Advanced Data Techniques - Web Application",
+    date: "Sep 2024 - Jan 2025",
+    association: "University of London",
+    description: "Created a Web app for visualizing student mental health data, stats, and correlations with academics and lifestyle.",
+    skills: "EJS, CSS, MySQL, Node.js",
+    video: "videos/mental-health.mp4",
+    link: "https://github.com/maryamzaman30/Mental-Health-Dashboard-Web-App"
+  },
+  {
     title: "Natural Language Processing - Text Classification",
     date: "Sep 2024 - Jan 2025",
     association: "University of London",
-    description: "Created a fake news detection model using Logistic Regression & BiLSTM, evaluated by accuracy & F1-score.",
+    description: "Created a fake news detector using Logistic Regression & BiLSTM, evaluated by accuracy & F1-score.",
     skills: "Text Classification, Machine Learning, Data Preprocessing",
     pdf: "pdfs/text-classification.pdf",
     link: "https://github.com/maryamzaman30/Natural-Language-Processing-University-of-London-text-classification"
